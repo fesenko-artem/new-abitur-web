@@ -2,20 +2,24 @@
 
 namespace Vendor\DI;
 
+use http\Encoding\Stream;
+
 class DI
 {
-    public function get($key): void
+    public array $container;
+    public function get($key): mixed
     {
-        
+        return $this->has($key);
+    }
+    //
+    public function set($key,$value): static
+    {
+        $this->container[$key] = $value;
+        return $this;
     }
 
-    public function set($key,$value): void
+    public function has($key): mixed
     {
-        
-    }
-
-    public function has(): void
-    {
-        
+        return $this->container[$key] ?? null;
     }
 }
