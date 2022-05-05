@@ -9,4 +9,6 @@ return [
     Vendor\Service\Auth\Provider::class,
     Vendor\Service\CSRF\Provider::class,
     Vendor\Service\Cache\Provider::class,
+    Vendor\Service\Server\Provider::class,
+    Vendor\Service\Session\Provider::class,
 ];
