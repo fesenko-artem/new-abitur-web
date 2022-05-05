@@ -10,7 +10,7 @@ class Cache
     {
         $cache_config = Config::group('Cache');
         $cache_engine = ucfirst($cache_config['cache_engine']);
-        $namespace = '\\Vendor\\Core\\Cache\\'.$cache_engine;
+        $namespace = '\\Vendor\\Lib\\Cache\\'.$cache_engine;
         $this->cache = new $namespace($cache_config);
     }
 
