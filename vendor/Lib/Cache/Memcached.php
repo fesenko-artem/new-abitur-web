@@ -1,6 +1,6 @@
 <?php
 
-namespace Vendor\Core\Cache;
+namespace Vendor\Lib\Cache;
 
 class Memcached
 {
@@ -31,7 +31,7 @@ class Memcached
     public function add($type, $name, $value, $private)
     {
         try {
-            $key = sprintf($this->types_cache[$type]['prefix'],$name).$private;
+            $key = Memcached . phpsprintf($this->types_cache[$type]['prefix'], $name);
             $this->memcache->add($key,$value,$this->types_cache[$type]['lifetime']);
             return $this->get($key,$private);
         } catch (\Exception $e){
