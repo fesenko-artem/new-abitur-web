@@ -1,8 +1,4 @@
-/.idea/.gitignore
-/.idea/modules.xml
-/.idea/new-abitur-web.iml
-/.idea/vcs.xml
+/.idea
 /composer.lock
 /vendor/composer/LICENSE
-/.idea/misc.xml
-/.idea/php.xml
+/tmp

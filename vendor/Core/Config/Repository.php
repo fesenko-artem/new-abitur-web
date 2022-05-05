@@ -4,7 +4,7 @@ namespace Vendor\Core\Config;
 
 class Repository
 {
-    protected static array $stored;
+    protected static $stored;
 
     /**
      * @param $group
@@ -24,7 +24,7 @@ class Repository
      * @param $key
      * @return mixed
      */
-    public static function retrieve($group, $key): mixed
+    public static function retrieve($group, $key)
     {
         return static::$stored[$group][$key] ?? false;
     }
@@ -33,7 +33,7 @@ class Repository
      * @param $group
      * @return mixed
      */
-    public static function retrieveGroup($group): mixed
+    public static function retrieveGroup($group)
     {
         return static::$stored[$group] ?? false;
     }
