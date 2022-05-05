@@ -21,7 +21,6 @@ class CSRF
     {
         $len = 16;
         $token = $this->random_string($len);
-        $_SESSION['CSRF'] = $token;
         return $token;
     }
     public function get_captcha(string $string)
