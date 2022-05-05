@@ -7,10 +7,16 @@ use Vendor\DI\DI;
 class Controller
 {
     protected $di;
+    protected $session;
+    protected $server;
+    protected $config;
     protected $data;
     public function __construct(DI $di)
     {
         $this->di = $di;
+        $this->server = $this->di->get('server');
+        $this->session = $this->di->get('session');
+        $this->config = $this->di->get('config');
     }
     public function __get($key)
     {
