@@ -3,6 +3,8 @@ $_SERVER['SERVER_PORT'] = 433;
 $_SERVER['HTTP_HOST'] = $_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'];
 $_SERVER['REQUEST_SCHEME'] = 'https';
 require_once ROOT_DIR . 'vendor/autoload.php';
+class_alias('Vendor\\Core\\Template\\Asset', 'Asset');
+class_alias('Vendor\\Core\\Template\\Theme', 'Theme');
 use Vendor\DI\DI;
 use Vendor\Core\Config\Config;
 use Vendor\System;
@@ -28,7 +30,10 @@ try {
         $di->set('session_settings', Config::group('session'));
         $session_settings = $di->get('session_settings');
         foreach ($session_settings as $session_setting=>$value){
-            ini_set('session.'.$session_setting,$value);
+            if($session_setting != 'base_session'){
+                ini_set('session.'.$session_setting,$value);
+            }
+
         }
         session_start();
     } catch (ErrorException $e){
