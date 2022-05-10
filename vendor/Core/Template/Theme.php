@@ -30,7 +30,7 @@ class Theme
     public static function getUrl()
     {
         $baseUrl = Config::item('app_url', 'main');
-        return sprintf('/%s', mb_strtolower(ENV).'/content');
+        return sprintf('/%s', 'content');
     }
     public static function header($name = null, $data = [])
     {
@@ -96,6 +96,6 @@ class Theme
      */
     public static function getThemePath(): string
     {
-        return ROOT_DIR . mb_strtolower(ENV) . DS . 'content';
+        return ROOT_DIR . 'content';
     }
 }
