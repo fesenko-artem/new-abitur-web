@@ -10,4 +10,5 @@ return array(
     'Vendor\\' => array($vendorDir . ''),
     'Pub\\' => array($baseDir . '/pub'),
     'Developer\\' => array($baseDir . '/developer'),
+    'Auth\\' => array($baseDir . '/auth'),
 );

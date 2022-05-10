@@ -5,7 +5,8 @@
       "Vendor\\": "vendor",
       "Vendor\\DI\\": "vendor/DI",
       "Pub\\": "pub",
-      "Developer\\": "developer"
+      "Developer\\": "developer",
+      "Auth\\": "auth"
     }
   },
   "authors": [
@@ -14,5 +15,7 @@
       "email": "fesenko_a@bsu.edu.ru"
     }
   ],
-  "require": {}
+  "require": {
+    "ext-json": "*"
+  }
 }
