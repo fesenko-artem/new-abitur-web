@@ -7,175 +7,158 @@ use Vendor\Core\Database\ActiveRecord;
 class User
 {
     use ActiveRecord;
-    protected string $table = 'user';
-    public int $id;
-    public string $email;
-    public string $guid;
-    public int $role;
-    public string $password;
-    public string $hash;
-    public string $date_create;
-    public string $date_update;
-    public string $date_delete;
-    public string $activation_status;
+    protected $table = 'user';
+    public $id;
+    public $email;
+    public $login;
+    public $password;
+    public $locked;
+    public $date_create;
+    public $date_update;
+    public $date_locked;
 
     /**
-     * @return int
+     * @return mixed
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
 
     /**
-     * @param int $id
+     * @param mixed $id
+     * @return User
      */
-    public function setId(int $id): void
+    public function setId($id)
     {
         $this->id = $id;
+        return $this;
     }
 
     /**
-     * @return string
+     * @return mixed
      */
-    public function getEmail(): string
+    public function getEmail()
     {
         return $this->email;
     }
 
     /**
-     * @param string $email
+     * @param mixed $email
+     * @return User
      */
-    public function setEmail(string $email): void
+    public function setEmail($email)
     {
         $this->email = $email;
+        return $this;
     }
 
     /**
-     * @return string
+     * @return mixed
      */
-    public function getGuid(): string
+    public function getLogin()
     {
-        return $this->guid;
+        return $this->login;
     }
 
     /**
-     * @param string $guid
+     * @param mixed $login
+     * @return User
      */
-    public function setGuid(string $guid): void
+    public function setLogin($login)
     {
-        $this->guid = $guid;
+        $this->login = $login;
+        return $this;
     }
 
     /**
-     * @return int
+     * @return mixed
      */
-    public function getRole(): int
-    {
-        return $this->role;
-    }
-
-    /**
-     * @param int $role
-     */
-    public function setRole(int $role): void
-    {
-        $this->role = $role;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPassword(): string
+    public function getPassword()
     {
         return $this->password;
     }
 
     /**
-     * @param string $password
+     * @param mixed $password
+     * @return User
      */
-    public function setPassword(string $password): void
+    public function setPassword($password)
     {
         $this->password = $password;
+        return $this;
     }
 
     /**
-     * @return string
+     * @return mixed
      */
-    public function getHash(): string
+    public function getLocked()
     {
-        return $this->hash;
+        return $this->locked;
     }
 
     /**
-     * @param string $hash
+     * @param mixed $locked
+     * @return User
      */
-    public function setHash(string $hash): void
+    public function setLocked($locked)
     {
-        $this->hash = $hash;
+        $this->locked = $locked;
+        return $this;
     }
 
     /**
-     * @return string
+     * @return mixed
      */
-    public function getDateCreate(): string
+    public function getDateCreate()
     {
         return $this->date_create;
     }
 
     /**
-     * @param string $date_create
+     * @param mixed $date_create
+     * @return User
      */
-    public function setDateCreate(string $date_create): void
+    public function setDateCreate($date_create)
     {
         $this->date_create = $date_create;
+        return $this;
     }
 
     /**
-     * @return string
+     * @return mixed
      */
-    public function getDateUpdate(): string
+    public function getDateUpdate()
     {
         return $this->date_update;
     }
 
     /**
-     * @param string $date_update
+     * @param mixed $date_update
+     * @return User
      */
-    public function setDateUpdate(string $date_update): void
+    public function setDateUpdate($date_update)
     {
         $this->date_update = $date_update;
+        return $this;
     }
 
     /**
-     * @return string
+     * @return mixed
      */
-    public function getDateDelete(): string
+    public function getDateLocked()
     {
-        return $this->date_delete;
+        return $this->date_locked;
     }
 
     /**
-     * @param string $date_delete
+     * @param mixed $date_locked
+     * @return User
      */
-    public function setDateDelete(string $date_delete): void
+    public function setDateLocked($date_locked)
     {
-        $this->date_delete = $date_delete;
+        $this->date_locked = $date_locked;
+        return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getActivationStatus(): string
-    {
-        return $this->activation_status;
-    }
-
-    /**
-     * @param string $activation_status
-     */
-    public function setActivationStatus(string $activation_status): void
-    {
-        $this->activation_status = $activation_status;
-    }
 }
