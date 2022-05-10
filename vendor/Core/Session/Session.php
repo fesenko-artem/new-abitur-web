@@ -40,4 +40,19 @@ class Session
         }
         return $keys;
     }
+
+    public function check_session_integrity(array $session_key_list)
+    {
+        foreach ($session_key_list as $session_key=>$session_value){
+            if(is_numeric($session_key)){
+                if ($this->get($session_value) == null){
+                    $this->set($session_value,null);
+                }
+            } else {
+                if ($this->get($session_key) == null){
+                    $this->set($session_key,$session_value);
+                }
+            }
+        }
+    }
 }
