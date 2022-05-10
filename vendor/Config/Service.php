@@ -11,4 +11,5 @@ return [
     Vendor\Service\Cache\Provider::class,
     Vendor\Service\Server\Provider::class,
     Vendor\Service\Session\Provider::class,
+    Vendor\Service\DateTime\Provider::class,
 ];

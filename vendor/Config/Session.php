@@ -22,7 +22,19 @@ return [
     'use_trans_sid'=>0,
     'sid_length'=>26,
     'trans_sid_tags'=>'a=href,area=href,frame=src,form=',
-    'sid_bits_per_character' => 5
+    'sid_bits_per_character' => 5,
+    'base_session'=>[
+        'CSRF',
+        'AUTH'=>'N',
+        'EMAIL',
+        'LAST_POSITION',
+        'LAST_ACTIVITY',
+        'DATE_REG',
+        'ROLE_LIST'=>[],
+        'IS_ADMIN',
+        'AUTH_DRIVER',
+        'IP_ADDRESS'
+    ]
 ];
 /*
 session.save_handler = memcached ;files
