@@ -3,13 +3,13 @@
 namespace Pub\Controller;
 
 use Vendor\Controller;
+use Vendor\Core\DateTime\DateTime;
 use Vendor\DI\DI;
 
 class PubController extends Controller
 {
     protected $db;
     protected $config;
-    protected $request;
     protected $load;
     protected $queryBuilder;
     protected $view;
@@ -20,34 +20,10 @@ class PubController extends Controller
     protected $auth;
     protected $data;
     protected $files;
+    protected $datetime;
     public function __construct(DI $di)
     {
         parent::__construct($di);
-        $this->request = $this->di->get('request');
-        /*
-        if($_SERVER['REQUEST_METHOD'] === 'GET' and !strpos($_SERVER['REQUEST_URI'],'content')) {
-            $_SESSION['LAST_POSITION'] = $_SERVER['REQUEST_URI'];
-        }
-        $_SESSION['LAST_POSITION_TIME'] = date_format(date_create(),'Y-m-d\TG:i:s');
-        if ($this->request->session['AUTH_STATUS'] == 'N' | !isset($this->request->session['AUTH_STATUS'])){
-            header('Location: /auth');
-            exit;
-        }
-        if ($this->request->session['user_data']->role->name === 'abiturient'){
-            $this->data['user_data'] = $this->request->session['user_data'];
-        }
-        if ($this->request->session['user_data']->role->name === 'admin' & !isset($this->request->session['SHADOW'])){
-            header('Location: /auth');
-            exit;
-        }
-        if ($this->request->session['user_data']->role->name === 'admin' & isset($this->request->session['SHADOW'])){
-            $this->data['user_data'] = $this->request->session['SHADOW'];
-        }
-        if ($this->request->session['user_data']->role->name === 'moderator' & !isset($this->request->session['SHADOW'])){
-            header('Location: /auth');
-            exit;
-        }
-        */
         $this->db = $this->di->get('db');
         $this->queryBuilder = $this->di->get('queryBuilder');
         $this->load = $this->di->get('load');
@@ -55,6 +31,7 @@ class PubController extends Controller
         $this->view = $this->di->get('view');
         $this->auth = $this->di->get('auth');
         $this->files = $this->di->get('files');
+        $this->datetime = $this->di->get('datetime');
         $this->app_settings = $this->di->get('app_settings');
         $this->data['csrf'] = $this->csrf->setCSRF();
         $this->session->set('CSRF',$this->data['csrf']);
@@ -64,12 +41,9 @@ class PubController extends Controller
         $this->data['env'] = mb_strtolower(ENV);
         $this->data['current_domain'] = $this->request->server['SERVER_NAME'];
         $this->data['app_config'] = $this->config->group('main');
-
-        /*
-        if ($this->request->session['user_data']->role->name === 'moderator' & isset($this->request->session['SHADOW'])){
-            $this->data['user_data'] = $this->request->session['SHADOW'];
-        }
-        */
+        $this->session->check_session_integrity($this->di->get('session_settings')['base_session']);
+        $this->session->set('IP_ADDRESS',$this->server->get('REMOTE_ADDR'));
+        $this->session->set('LAST_ACTIVITY',$this->datetime->get($this->datetime::DB_DATETIMESTAMP));
 
     }
 }
