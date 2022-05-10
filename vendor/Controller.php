@@ -9,6 +9,7 @@ class Controller
     protected $di;
     protected $session;
     protected $server;
+    protected $request;
     protected $config;
     protected $data;
     public function __construct(DI $di)
@@ -17,6 +18,7 @@ class Controller
         $this->server = $this->di->get('server');
         $this->session = $this->di->get('session');
         $this->config = $this->di->get('config');
+        $this->request = $this->di->get('request');
     }
     public function __get($key)
     {
