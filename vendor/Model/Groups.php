@@ -122,5 +122,4 @@ class Groups
         $this->date_update = $date_update;
         return $this;
     }
-
 }
