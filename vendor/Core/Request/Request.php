@@ -24,4 +24,15 @@ class Request
         $this->server = $_SERVER;
         $this->environment = $_ENV;
     }
+
+    public function redirect($url)
+    {
+        header(sprintf('Location: %s',$url));
+        exit;
+    }
+
+    public function set_json_data_type()
+    {
+        header('Content-Type: application/json');
+    }
 }
