@@ -32,7 +32,7 @@ class Database
             return ['status'=>false];
         } else{
             unset($user->password);
-            return ['status'=>true,'data'=>['user_data'=>$user,'grpoups'=>$this->get_groups($this->group_user_model->findall_by_conditions('user_id',$user->id))]];
+            return ['status'=>true,'data'=>['user_data'=>$user,'groups'=>$this->get_groups($this->group_user_model->findall_by_conditions('user_id',$user->id))]];
         }
     }
 
