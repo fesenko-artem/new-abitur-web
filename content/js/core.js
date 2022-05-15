@@ -1,4 +1,7 @@
 let URI = document.location
+Array.prototype.remove = function(el) {
+    return this.splice(this.indexOf(el), 1);
+}
 let get_document_params = function (uri) {
     let params = {}
     if (uri === undefined){
