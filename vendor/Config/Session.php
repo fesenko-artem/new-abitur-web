@@ -27,11 +27,10 @@ return [
         'CSRF',
         'AUTH'=>'N',
         'EMAIL',
-        'LAST_POSITION',
+        'LAST_POSITION'=>'/',
         'LAST_ACTIVITY',
         'DATE_REG',
         'ROLE_LIST'=>[],
-        'IS_ADMIN',
         'AUTH_DRIVER',
         'IP_ADDRESS'
     ]
