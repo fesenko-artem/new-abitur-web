@@ -3,7 +3,11 @@ $('#auth').on('click',function () {
 })
 let auth = {
     authorize:function (params) {
-        console.log(params)
+        if (params.status === true){
+            URI.assign(params.data)
+        }else {
+            console.log(params)
+        }
         ldr.loader_delete()
     }
 }
