@@ -4,7 +4,7 @@
             <ul class="nav">
                 <li class="nav-item file-container-back"><span class="nav-link active" type="button"><i class="fa-light fa-folder-arrow-up"></i></span></li>
                 <li class="nav-item file-container-home"><span class="nav-link active" type="button"><i class="fa-light fa-house-user"></i></span></li>
-                <li class="nav-item"><input class="form-control me-5" id="file_path" value="<?=$environment->path_dir?>" disabled></li>
+                <li class="nav-item file-container-path"><input class="form-control me-5" id="file_path" value="<?=$environment->path_dir?>" disabled></li>
             </ul>
         </div>
         <div class="container-fluid file-container-body">
