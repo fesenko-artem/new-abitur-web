@@ -7,3 +7,4 @@ Asset::css('css/offcanvas-sidebar');
 Asset::js('js/jquery.min');
 Asset::js('js/jquery-ui.min');
 Asset::js('js/bootstrap.bundle.min');
+Asset::js('js/core');
