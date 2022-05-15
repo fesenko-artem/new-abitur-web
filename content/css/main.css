@@ -136,6 +136,15 @@ body{
         padding: 1em;
         width: 40% !important;
     }
+    .body-panel-container{
+        height: 82%!important;
+    }
+    .file-container-header{
+        height: 18%;
+    }
+    .file-container-path{
+        width: 50%;
+    }
 }
 .navigation_list_item_list.user_element{
     position: absolute;
@@ -177,6 +186,7 @@ ul li[title]:hover:after{
     margin: 1em;
     border: rgba(1,1,1,0.1) 1px solid;
     border-radius: 5px;
+    height: 88%;
 }
 .body-nav-panel{
     display: flex;
@@ -252,4 +262,16 @@ a {
 }
 .body-nav-panel-navigation li input{
     height: 100%;
+}
+.file-container{
+    height: 100%;
+}
+.file-container .file-container-body{
+    height: 90%;
+    overflow-y: auto;
+}
+::-webkit-scrollbar {
+    width: 0; /* ширина для вертикального скролла */
+    height: 0; /* высота для горизонтального скролла */
+    background-color: #143861;
 }
