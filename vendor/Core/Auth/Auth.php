@@ -19,14 +19,25 @@ class Auth
     {
         $check = $this->auth_driver->check($param_type,$param_value,$password);
         if ($check['status']){
-            $this->authorize($check['data']);
+            return $this->authorize($check['data']);
+        } else{
+            return $check;
         }
-        return $check;
+
     }
 
     public function authorize($data)
     {
-        return $data;
+        $session = new \Vendor\Core\Session\Session;
+        $session->set('AUTH','Y');
+        $session->set('EMAIL',$data['user_data']->email);
+        $session->set('LOGIN',$data['user_data']->login);
+        $session->set('DATE_REG',$data['user_data']->date_create);
+        $session->set('EMAIL',$data['user_data']->email);
+        $session->set('ROLE_LIST',$data['groups']);
+        $session->set('AUTH_DRIVER',$this->auth_config['auth.driver']);
+
+        return ['status'=>true,'data'=>$session->get('LAST_POSITION')];
     }
 
     public function unauthorize()
