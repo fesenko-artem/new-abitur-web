@@ -40,7 +40,10 @@ class Database
     {
         $groups = [];
         foreach ($group_list as $key=>$value){
-            $groups[] = $this->group_model->find('id',$value->group_id);
+            $group = $this->group_model->find('id',$value->group_id);
+            if ($group){
+                $groups[$group->id] = $group;
+            }
         }
         return $groups;
     }
