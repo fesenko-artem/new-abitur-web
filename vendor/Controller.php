@@ -50,7 +50,6 @@ class Controller
         $this->session->check_session_integrity($this->di->get('session_settings')['base_session']);
         $this->session->set('IP_ADDRESS',$this->server->get('REMOTE_ADDR'));
         $this->session->set('LAST_ACTIVITY',$this->datetime->get($this->datetime::DB_DATETIMESTAMP));
-
         $this->session->set('CSRF',$this->data['csrf']);
 
     }
