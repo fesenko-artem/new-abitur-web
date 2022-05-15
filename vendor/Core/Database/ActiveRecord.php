@@ -61,6 +61,19 @@ trait ActiveRecord
 
         return $find ?? null;
     }
+    public function findall_by_cond($params)
+    {
+        $this->queryBuilder->select()->from($this->getTable());
+        foreach ($params as $key=>$value){
+            $this->queryBuilder->where($key, $value);
+        }
+        $find = $this->db->query(
+            $this->queryBuilder->sql(),
+            $this->queryBuilder->values
+        );
+
+        return $find ?? null;
+    }
     public function findlast($column,$value,$order_column,$order_type)
     {
         $findlast = $this->db->query(
