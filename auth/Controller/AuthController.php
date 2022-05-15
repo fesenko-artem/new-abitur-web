@@ -12,6 +12,9 @@ class AuthController extends Controller
     public function __construct(DI $di)
     {
         parent::__construct($di);
+        if ($this->session->get('AUTH') == 'Y'){
+            $this->request->redirect($this->session->get('LAST_POSITION'));
+        }
     }
 
     public function signin()
@@ -23,6 +26,11 @@ class AuthController extends Controller
     {
         $this->request->set_json_data_type();
         echo json_encode($this->auth->auth('email',$this->request->post['email'],$this->request->post['password']));
+    }
+
+    public function logout()
+    {
+        return $this->auth->unauthorize();
     }
 
     public function signup()
