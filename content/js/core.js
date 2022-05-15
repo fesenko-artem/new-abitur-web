@@ -72,8 +72,8 @@ class AJAX{
             processData: false,
             contentType: false,
             beforeSend:function (){callback_before_send_function()},
-            success: function (result) {callback_result_function(result)},
-            error: function (result) {callback_error_function(result)}
+            success: function (result) {callback_result_function(result);ldr.loader_delete()},
+            error: function (result) {callback_error_function(result);ldr.loader_delete()}
         })
     }
     GET($params){}
